@@ -310,6 +310,55 @@
       display: block;
     }
 
+
+    .video-language-switcher {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 14px;
+      align-items: center;
+    }
+
+    .video-language-switcher span {
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      margin-right: 2px;
+    }
+
+    .video-lang-btn {
+      border: 1px solid rgba(0, 217, 255, .28);
+      background: rgba(0, 217, 255, .07);
+      color: var(--muted);
+      padding: 8px 12px;
+      border-radius: 999px;
+      font: inherit;
+      font-size: 13px;
+      font-weight: 900;
+      cursor: pointer;
+      transition: background .18s ease, color .18s ease, border-color .18s ease, transform .18s ease;
+    }
+
+    .video-lang-btn:hover:not(:disabled) {
+      transform: translateY(-1px);
+      color: var(--text);
+      border-color: rgba(0, 217, 255, .7);
+      background: rgba(0, 217, 255, .14);
+    }
+
+    .video-lang-btn.active {
+      color: #00141d;
+      background: linear-gradient(135deg, #00c9ef, #1277ff);
+      border-color: transparent;
+    }
+
+    .video-lang-btn:disabled {
+      opacity: .45;
+      cursor: not-allowed;
+    }
+
     .hero-card h2 { margin: 20px 0 8px; font-size: 28px; }
     .hero-card p { color: var(--muted); line-height: 1.5; margin: 0; }
 
@@ -764,10 +813,17 @@
         </div>
 
         <aside class="hero-card" aria-label="BAYOR introduction video and featured MVP">
+          <div class="video-language-switcher" aria-label="Select video language">
+            <span>Video language</span>
+            <button class="video-lang-btn active" type="button" data-video-lang="en" data-video-id="MfjSbLg6DpA">English</button>
+            <button class="video-lang-btn" type="button" data-video-lang="fr" data-video-id="SwnaJ5Ic-FY">Français</button>
+            <button class="video-lang-btn" type="button" disabled title="Spanish video coming soon">Español</button>
+          </div>
           <div class="video-card" aria-label="Embedded YouTube video">
             <iframe
+              id="sagasqlVideo"
               src="https://www.youtube.com/embed/MfjSbLg6DpA"
-              title="BAYOR Cloud & AI Solutions introduction video"
+              title="BAYOR Cloud & AI Solutions introduction video - English"
               allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               allowfullscreen
               loading="lazy"></iframe>
@@ -948,12 +1004,12 @@
               <a class="btn primary" href="assets/BAYOR_Cloud_AI_Solutions_SAGASQL_EN.pdf" download>Download PDF</a>
             </div>
             <div class="language-row">
-              <div><strong>Français</strong><br/><span>Coming soon</span></div>
-              <span class="btn disabled">Download PDF</span>
+              <div><strong>Français</strong><br/><span>Disponible</span></div>
+              <a class="btn primary" href="assets/BAYOR_Cloud_AI_Solutions_SAGASQL_FRENCH.pdf" download>T&eacute;l&eacute;charger PDF</a>
             </div>
             <div class="language-row">
-              <div><strong>Español</strong><br/><span>Coming soon</span></div>
-              <span class="btn disabled">Download PDF</span>
+              <div><strong>Español</strong><br/><span>¡Pronto!</span></div>
+              <span class="btn disabled">Descargar PDF</span>
             </div>
           </div>
         </div>
@@ -1023,6 +1079,24 @@
       toast.classList.add('show');
       window.setTimeout(() => toast.classList.remove('show'), 5200);
     }
+
+
+
+    const videoFrame = document.getElementById('sagasqlVideo');
+    const videoButtons = document.querySelectorAll('.video-lang-btn[data-video-id]');
+
+    videoButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        const videoId = button.dataset.videoId;
+        const lang = button.dataset.videoLang === 'fr' ? 'French' : 'English';
+
+        videoFrame.src = `https://www.youtube.com/embed/${videoId}`;
+        videoFrame.title = `BAYOR Cloud & AI Solutions introduction video - ${lang}`;
+
+        videoButtons.forEach((btn) => btn.classList.remove('active'));
+        button.classList.add('active');
+      });
+    });
 
     form.addEventListener('submit', async (event) => {
       event.preventDefault();
