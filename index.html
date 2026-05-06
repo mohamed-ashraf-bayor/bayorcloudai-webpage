@@ -173,7 +173,7 @@
 
     .hero-grid {
       display: grid;
-      grid-template-columns: minmax(0, 1.08fr) minmax(420px, .92fr);
+      grid-template-columns: minmax(0, .95fr) minmax(546px, 1.2fr);
       gap: 60px;
       align-items: center;
     }
@@ -222,6 +222,7 @@
     }
 
     .hero-card {
+      width: 110%;
       background: linear-gradient(160deg, rgba(8, 45, 64, .9), rgba(4, 20, 31, .78));
       border: 1px solid rgba(0, 217, 255, .26);
       border-radius: var(--radius);
@@ -290,6 +291,25 @@
       text-transform: uppercase;
     }
 
+
+
+    .video-card {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid rgba(0, 217, 255, .22);
+      background: #03131d;
+      box-shadow: 0 18px 50px rgba(0,0,0,.24);
+    }
+
+    .video-card iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      display: block;
+    }
+
     .hero-card h2 { margin: 20px 0 8px; font-size: 28px; }
     .hero-card p { color: var(--muted); line-height: 1.5; margin: 0; }
 
@@ -313,7 +333,7 @@
     section { padding: 58px 0; }
 
     .section-head {
-      max-width: 820px;
+      /*max-width: 820px;*/
       margin-bottom: 26px;
     }
 
@@ -730,7 +750,7 @@
         <div>
 <h1>AI-powered solutions that help people work faster, safer and smarter</h1>
           <p class="lead">
-            We help organizations move from AI ideas to secure architecture, working MVPs and practical integration with databases, APIs, workflows and human review
+            We build practical Cloud + AI solutions that connect with real systems, databases, APIs and workflows, with people kept in control
           </p>
           <div class="hero-actions">
             <a class="btn primary" href="#downloads">Download the company PDF</a>
@@ -743,17 +763,18 @@
           </div>
         </div>
 
-        <aside class="hero-card" aria-label="BAYOR Cloud and AI Solutions logo and featured MVP">
-          <div class="sagasql-logo-card" aria-label="SAGASQL logo">
-            <div>
-              <div class="sagasql-logo-main">SAGA<span>SQL</span></div>
-              <div class="sagasql-logo-sub">Schema-Driven Agentic SQL Generation</div>
-            </div>
+        <aside class="hero-card" aria-label="BAYOR introduction video and featured MVP">
+          <div class="video-card" aria-label="Embedded YouTube video">
+            <iframe
+              src="https://www.youtube.com/embed/MfjSbLg6DpA"
+              title="BAYOR Cloud & AI Solutions introduction video"
+              allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+              loading="lazy"></iframe>
           </div>
           <h2>Featured MVP: SAGASQL</h2>
           <p>
-            <strong>Schema-Driven Agentic SQL Generation</strong> with cloud validation, sandbox testing,
-            optional test data and future reporting UI
+            AI-assisted SQL generation with schema context, sandbox testing, cloud validation and human review
           </p>
         </aside>
       </div>
@@ -764,41 +785,25 @@
         <div class="section-head">
           <h2>Who we are</h2>
           <p>
-            BAYOR Cloud & AI Solutions is an Ontario-registered sole proprietorship led by Mohamed Ashraf Bayor,
-            combining long-standing system integration experience with modern Cloud + AI solution design
+            Founded by Mohamed Bayor to build AI-powered cloud-native solutions that help teams move faster, safer and with more confidence
           </p>
         </div>
 
         <div class="grid three">
           <article class="card">
-            <div class="icon">☁</div>
-            <h3>Cloud + AI architecture</h3>
-            <p>Cloud-native designs using AI services, APIs, data systems, workflows, serverless patterns and observability</p>
+            <div class="icon">1</div>
+            <h3>Mohamed Bayor</h3>
+            <p>Software engineer since 2007, focused on enterprise applications, Java backends, APIs, databases and integration work</p>
           </article>
           <article class="card">
-            <div class="icon">↔</div>
-            <h3>Modern integration</h3>
-            <p>Connect AI capabilities to existing databases, APIs, internal tools, workflows and security controls</p>
+            <div class="icon">2</div>
+            <h3>BAYOR focus</h3>
+            <p>AI-powered cloud-native solutions for real systems, existing applications and practical modernization</p>
           </article>
           <article class="card">
-            <div class="icon">▶</div>
-            <h3>MVP leadership</h3>
-            <p>Scope, design and guide secure proof-of-concepts that can evolve into real internal or commercial products</p>
-          </article>
-          <article class="card">
-            <div class="icon">AI</div>
-            <h3>Custom AI solutions</h3>
-            <p>Internal copilots, reporting helpers, document automation, developer tools and agentic workflows</p>
-          </article>
-          <article class="card">
-            <div class="icon">⚙</div>
-            <h3>Cloud-native engineering</h3>
-            <p>Serverless, queues, APIs, containers, managed databases, backend services and scalable delivery patterns</p>
-          </article>
-          <article class="card">
-            <div class="icon">✓</div>
-            <h3>Technical advisory</h3>
-            <p>Use-case review, architecture blueprint, risk reduction, MVP plan and delivery guidance</p>
+            <div class="icon">3</div>
+            <h3>Human-centered AI</h3>
+            <p>The goal is to boost how people build, test, document and decide, not to replace teams with AI</p>
           </article>
         </div>
       </div>
@@ -809,8 +814,7 @@
         <div class="section-head">
           <h2>Featured MVP: SAGASQL</h2>
           <p>
-            Our first MVP product shows how BAYOR applies Cloud + AI architecture to a real business use case:
-            natural-language SQL generation with schema context, sandbox validation and human review
+            Relational databases are still everywhere. SAGASQL helps teams move from question to safer, tested SQL.
           </p>
         </div>
 
@@ -819,8 +823,7 @@
             <div>
               <p class="saga-name">SAGA<span>SQL</span></p>
               <p>
-                A schema-driven AI workflow that turns business questions into database-specific SQL,
-                validates the result in a cloud sandbox and returns evidence for human review
+                SAGASQL targets the gap between “<i>AI can write SQL</i>” and “<i>teams can safely trust, test and use SQL</i>”
               </p>
             </div>
             <div class="pill">Schema-Driven Agentic SQL Generation</div>
@@ -828,28 +831,28 @@
 
           <div class="steps" aria-label="SAGASQL five step workflow">
             <div class="step"><b>1</b><h3>Ask</h3><p>Plain-language question in supported languages</p></div>
-            <div class="step"><b>2</b><h3>Schema</h3><p>DDL schema plus optional client test data</p></div>
-            <div class="step"><b>3</b><h3>Generate</h3><p>Single-model mode for speed or two-model mode for confidence</p></div>
-            <div class="step"><b>4</b><h3>Validate</h3><p>Sandbox test, guardrails and SQL regeneration if needed</p></div>
-            <div class="step"><b>5</b><h3>Return</h3><p>SQL, explanation, test evidence and human review signal</p></div>
+            <div class="step"><b>2</b><h3>Schema</h3><p>DDL, optional test data and execution options</p></div>
+            <div class="step"><b>3</b><h3>Generate</h3><p>Single or multiple-model AI generation</p></div>
+            <div class="step"><b>4</b><h3>Cloud test</h3><p>Sandbox DB plus guardrails</p></div>
+            <div class="step"><b>5</b><h3>Evidence</h3><p>SQL, explanation and result</p></div>
           </div>
         </div>
 
         <div class="grid three" style="margin-top:18px">
           <article class="card">
             <div class="icon">SQL</div>
-            <h3>Initial database support</h3>
-            <p>PostgreSQL, MySQL and SQL Server first. More SQL dialects can be added over time.</p>
+            <h3>Why it matters</h3>
+            <p>New queries never stop. Apps, dashboards, reports and support workflows constantly need SQL.</p>
           </article>
           <article class="card">
-            <div class="icon">🧪</div>
-            <h3>Test data options</h3>
-            <p>Generate 10, 100, 1000+ rows per table or allow clients to upload their own test data per table</p>
+            <div class="icon">✓</div>
+            <h3>Technical value</h3>
+            <p>Developers, testers and DBAs can generate, test and review SQL before using it in applications</p>
           </article>
           <article class="card">
             <div class="icon">▦</div>
-            <h3>Future reporting UI</h3>
-            <p>Saved requests, workflow history, IDE plugin integration, charts, tables, exports and dashboards</p>
+            <h3>Business value</h3>
+            <p>Product, BI, data and business teams can move faster from questions to report-ready results</p>
           </article>
         </div>
       </div>
@@ -870,7 +873,7 @@
             <article class="card project-card featured">
               <div class="status">In development</div>
               <h3>SAGASQL</h3>
-              <p>Schema-Driven Agentic SQL Generation: natural language + DDL schema + optional test data → validated SQL with sandbox evidence</p>
+              <p>From plain-language question + schema to validated SQL with explanation and test evidence</p>
               <div class="project-meta">
                 <span class="tag">Cloud + AI</span><span class="tag">SQL</span><span class="tag">MVP</span>
               </div>
@@ -931,8 +934,7 @@
         <div class="section-head">
           <h2>Download the overview</h2>
           <p>
-            The PDF contains the full company context, founder background,
-            SAGASQL details, MVP workflow, trust model and engagement options
+            Download the short BAYOR and SAGASQL overview
           </p>
         </div>
 
@@ -963,8 +965,7 @@
         <div class="section-head">
           <h2>Express interest or book a call</h2>
           <p>
-            Want to learn more about BAYOR, SAGASQL, our product direction or how Cloud + AI can integrate with your systems?
-            Send a short note and we can schedule an intro call
+            Share your need, and we can discuss the right Cloud + AI approach
           </p>
         </div>
 
